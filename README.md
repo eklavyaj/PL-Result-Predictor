@@ -19,6 +19,7 @@ High randomness of data makes it difficult to achieve high accuracy in predictin
 
 # Result:
 
+Have a look at the results folder!
 ![](results/input.png)![](results/output.png)
 
 # Scope for Improvement:
