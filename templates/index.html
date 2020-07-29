@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predictor</title>
+    <style>
+        /*the container must be positioned relative:*/
+        .custom-select {
+          position: relative;
+          font-family: Arial;
+        }
+    
+        .custom-select select {
+        display: none; /*hide original SELECT element:*/
+        }
+        .select-selected {
+          background-color: rgb(35, 144, 216);
+        }
+        
+        /*style the arrow inside the select element:*/
+        .select-selected:after {
+          position: absolute;
+          content: "";
+          top: 14px;
+          right: 10px;
+          width: 0;
+          height: 0;
+          border: 6px solid transparent;
+          border-color: #fff transparent transparent transparent;
+        }
+        
+        /*point the arrow upwards when the select box is open (active):*/
+        .select-selected.select-arrow-active:after {
+          border-color: transparent transparent #fff transparent;
+          top: 7px;
+        }
+        
+        /*style the items (options), including the selected item:*/
+        .select-items div,.select-selected {
+          color: #ffffff;
+          padding: 8px 16px;
+          border: 1px solid transparent;
+          border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+          cursor: pointer;
+          user-select: none;
+        }
+        
+        /*style items (options):*/
+        .select-items {
+          position: absolute;
+          background-color: rgb(35, 144, 216);
+          top: 100%;
+          left: 0;
+          right: 0;
+          z-index: 99;
+        }
+        
+
+        /*hide the items when the select box is closed:*/
+        .select-hide {
+        display: none;
+        }
+        
+        .select-items div:hover, .same-as-selected {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+        </style>
+</head>
+
+
+<body>
+    <form method = "post">
+        <p>Pick home Team:</p>
+        <div class="custom-select">
+            <select name="hteam" id="hteam">
+                <option value="Arsenal" selected>Arsenal</option>
+                <option value = "Aston Villa">Aston Villa</option>
+                <option value = "Barnsley">Barnsley</option>
+                <option value = "Birmingham City">Birmingham City</option>
+                <option value = "Blackburn Rovers">Blackburn Rovers</option>
+                <option value = "Blackpool">Blackpool</option>
+                <option value = "Bolton Wanderers">Bolton Wanderers</option>
+                <option value = "Bournemouth">Bournemouth</option>
+                <option value = "Bradford City">Bradford City</option>
+                <option value = "Brighton">Brighton</option>
+                <option value = "Burnley">Burnley</option>
+                <option value = "Cardiff City">Cardiff City</option>
+                <option value = "Charlton Athletic">Charlton Athletic</option>
+                <option value = "Chelsea">Chelsea</option>
+                <option value = "Coventry City">Coventry City</option>
+                <option value = "Crystal Palace">Crystal Palace</option>
+                <option value = "Derby County">Derby County</option>
+                <option value = "Everton">Everton</option>
+                <option value = "Fulham">Fulham</option>
+                <option value = "Huddersfield Town">Huddersfield Town</option>
+                <option value = "Hull City">Hull City</option>
+                <option value = "Ipswich Town">Ipswich Town</option>
+                <option value = "Leeds United">Leeds United</option>
+                <option value = "Leicester City">Leicester City</option>
+                <option value = "Liverpool">Liverpool</option>
+                <option value = "Manchester City">Manchester City</option>
+                <option value = "Manchester United">Manchester United</option>
+                <option value = "Middlesbrough">Middlesbrough</option>
+                <option value = "Newcastle United">Newcastle United</option>
+                <option value = "Norwich City">Norwich City</option>
+                <option value = "Nottingham Forest">Nottingham Forest</option>
+                <option value = "Portsmouth">Portsmouth</option>
+                <option value = "Queens Park Rangers">Queens Park Rangers</option>
+                <option value = "Reading">Reading</option>
+                <option value = "Sheffield United">Sheffield United</option>
+                <option value = "Sheffield Wednesday">Sheffield Wednesday</option>
+                <option value = "Southampton">Southampton</option>
+                <option value = "Stoke City">Stoke City</option>
+                <option value = "Sunderland">Sunderland</option>
+                <option value = "Swansea City">Swansea City</option>
+                <option value = "Tottenham Hotspur">Tottenham Hotspur</option>
+                <option value = "Watford">Watford</option>
+                <option value = "West Bromwich Albion">West Bromwich Albion</option>
+                <option value = "West Ham United">West Ham United</option>
+                <option value = "Wigan">Wigan</option>
+                <option value = "Wimbledon">Wimbledon</option>
+                <option value = "Wolverhampton Wanderers">Wolverhampton Wanderers</option>
+            </select>
+        </div>
+        <p>Pick Away Team:</p>
+        <div class="custom-select">
+            <select name="ateam" id="ateam">
+                <option value="Arsenal">Arsenal</option>
+                <option value = "Aston Villa">Aston Villa</option>
+                <option value = "Barnsley">Barnsley</option>
+                <option value = "Birmingham City">Birmingham City</option>
+                <option value = "Blackburn Rovers">Blackburn Rovers</option>
+                <option value = "Blackpool">Blackpool</option>
+                <option value = "Bolton Wanderers">Bolton Wanderers</option>
+                <option value = "Bournemouth">Bournemouth</option>
+                <option value = "Bradford City">Bradford City</option>
+                <option value = "Brighton">Brighton</option>
+                <option value = "Burnley">Burnley</option>
+                <option value = "Cardiff City">Cardiff City</option>
+                <option value = "Charlton Athletic">Charlton Athletic</option>
+                <option value = "Chelsea">Chelsea</option>
+                <option value = "Coventry City">Coventry City</option>
+                <option value = "Crystal Palace">Crystal Palace</option>
+                <option value = "Derby County">Derby County</option>
+                <option value = "Everton">Everton</option>
+                <option value = "Fulham">Fulham</option>
+                <option value = "Huddersfield Town">Huddersfield Town</option>
+                <option value = "Hull City">Hull City</option>
+                <option value = "Ipswich Town">Ipswich Town</option>
+                <option value = "Leeds United">Leeds United</option>
+                <option value = "Leicester City">Leicester City</option>
+                <option value = "Liverpool">Liverpool</option>
+                <option value = "Manchester City">Manchester City</option>
+                <option value = "Manchester United" selected>Manchester United</option>
+                <option value = "Middlesbrough">Middlesbrough</option>
+                <option value = "Newcastle United">Newcastle United</option>
+                <option value = "Norwich City">Norwich City</option>
+                <option value = "Nottingham Forest">Nottingham Forest</option>
+                <option value = "Portsmouth">Portsmouth</option>
+                <option value = "Queens Park Rangers">Queens Park Rangers</option>
+                <option value = "Reading">Reading</option>
+                <option value = "Sheffield United">Sheffield United</option>
+                <option value = "Sheffield Wednesday">Sheffield Wednesday</option>
+                <option value = "Southampton">Southampton</option>
+                <option value = "Stoke City">Stoke City</option>
+                <option value = "Sunderland">Sunderland</option>
+                <option value = "Swansea City">Swansea City</option>
+                <option value = "Tottenham Hotspur">Tottenham Hotspur</option>
+                <option value = "Watford">Watford</option>
+                <option value = "West Bromwich Albion">West Bromwich Albion</option>
+                <option value = "West Ham United">West Ham United</option>
+                <option value = "Wigan">Wigan</option>
+                <option value = "Wimbledon">Wimbledon</option>
+                <option value = "Wolverhampton Wanderers">Wolverhampton Wanderers</option>
+            </select>
+        </div>
+        <p>Who is winning at half time:</p>
+        <input type="radio" id = "H" name = "htime" value = "H">
+        <label for="H">Home Team</label><br>
+        <input type="radio" id = "A" name = "htime" value = "A">
+        <label for="A">Away Team</label><br>
+        <input type="radio" id = "D" name = "htime" value = "D">
+        <label for="D">Scores are level</label><br><br>
+        <input type="submit" value = "Submit">
+
+    </form>
+   
+
+    <script>
+        var x, i, j, l, ll, selElmnt, a, b, c;
+        /*look for any elements with the class "custom-select":*/
+        x = document.getElementsByClassName("custom-select");
+        l = x.length;
+        for (i = 0; i < l; i++) {
+        selElmnt = x[i].getElementsByTagName("select")[0];
+        ll = selElmnt.length;
+        /*for each element, create a new DIV that will act as the selected item:*/
+        a = document.createElement("DIV");
+        a.setAttribute("class", "select-selected");
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        x[i].appendChild(a);
+        /*for each element, create a new DIV that will contain the option list:*/
+        b = document.createElement("DIV");
+        b.setAttribute("class", "select-items select-hide");
+        for (j = 1; j < ll; j++) {
+            /*for each option in the original select element,
+            create a new DIV that will act as an option item:*/
+            c = document.createElement("DIV");
+            c.innerHTML = selElmnt.options[j].innerHTML;
+            c.addEventListener("click", function(e) {
+                /*when an item is clicked, update the original select box,
+                and the selected item:*/
+                var y, i, k, s, h, sl, yl;
+                s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                sl = s.length;
+                h = this.parentNode.previousSibling;
+                for (i = 0; i < sl; i++) {
+                if (s.options[i].innerHTML == this.innerHTML) {
+                    s.selectedIndex = i;
+                    h.innerHTML = this.innerHTML;
+                    y = this.parentNode.getElementsByClassName("same-as-selected");
+                    yl = y.length;
+                    for (k = 0; k < yl; k++) {
+                    y[k].removeAttribute("class");
+                    }
+                    this.setAttribute("class", "same-as-selected");
+                    break;
+                }
+                }
+                h.click();
+            });
+            b.appendChild(c);
+        }
+        x[i].appendChild(b);
+        a.addEventListener("click", function(e) {
+            /*when the select box is clicked, close any other select boxes,
+            and open/close the current select box:*/
+            e.stopPropagation();
+            closeAllSelect(this);
+            this.nextSibling.classList.toggle("select-hide");
+            this.classList.toggle("select-arrow-active");
+            });
+        }
+        function closeAllSelect(elmnt) {
+        /*a function that will close all select boxes in the document,
+        except the current select box:*/
+        var x, y, i, xl, yl, arrNo = [];
+        x = document.getElementsByClassName("select-items");
+        y = document.getElementsByClassName("select-selected");
+        xl = x.length;
+        yl = y.length;
+        for (i = 0; i < yl; i++) {
+            if (elmnt == y[i]) {
+            arrNo.push(i)
+            } else {
+            y[i].classList.remove("select-arrow-active");
+            }
+        }
+        for (i = 0; i < xl; i++) {
+            if (arrNo.indexOf(i)) {
+            x[i].classList.add("select-hide");
+            }
+        }
+        }
+        /*if the user clicks anywhere outside the select box,
+        then close all select boxes:*/
+        document.addEventListener("click", closeAllSelect);
+    </script>
+
+</body>
+</html>
