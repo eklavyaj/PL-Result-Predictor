@@ -1,9 +1,12 @@
 # Premier-League-Result-Predictor
 
 # Introduction
-I would call this a 101 machine learning project. The aim was to analyze the data of over 8000 English Premier League fixtures spread across 20 seasons. Eventually implemented a machine learning model to predict the final result of a match between two two teams whose status (who is winning, or if scores are level) at half time is known. Also created a flask app which takes input the above mentioned variables using a form and then displays the result.
+I would call this a 101 machine learning project. The aim was to analyze the data of over 8000 English Premier League fixtures spread across 20 seasons. Eventually implemented a machine learning model to predict the final result of a match between two teams whose status (who is winning, or if scores are level) at half time is known. Also created a flask app which takes input the above mentioned variables using a form and then displays the result.
 
 # Implementation
+
+Click [here](https://plpredictor.herokuapp.com/) to view current deployment of the model.
+
 To run on local server:
 ~~~
 conda create -n <name_env>
@@ -12,10 +15,10 @@ conda install pip
 pip install -r requirements.txt
 python3 app.py
 ~~~
-After this go to your local host and play with the app. 
+After this go to your local host and test the model. 
 
 # Accuracy:
-High randomness of data makes it difficult to achieve high accuracy in predicting the correct labels. With only a few features for the model to learning and a large number unique instances, the classification algorithm achieved an accuracy of 61.83%. After trying different models like K-Neighbors Classification, Naive Bayes, logistic Regression, Decision Tree Classification and an SVM, Random Forest Classifier outshone the others. 
+High randomness of data makes it difficult to achieve high accuracy in predicting the correct labels. With only a few features for the model to learn and a large number of unique instances, the classification algorithm achieved an accuracy of 61.83%. After trying different models like K-Neighbors Classification, Naive Bayes, logistic Regression, Decision Tree Classification and an SVM, Random Forest Classifier outshone the others. 
 
 # Result:
 
