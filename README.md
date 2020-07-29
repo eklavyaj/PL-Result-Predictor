@@ -15,7 +15,7 @@ conda install pip
 pip install -r requirements.txt
 python3 app.py
 ~~~
-After this go to your local host and play with the app. 
+After this go to your local host and test the model. 
 
 # Accuracy:
 High randomness of data makes it difficult to achieve high accuracy in predicting the correct labels. With only a few features for the model to learn and a large number of unique instances, the classification algorithm achieved an accuracy of 61.83%. After trying different models like K-Neighbors Classification, Naive Bayes, logistic Regression, Decision Tree Classification and an SVM, Random Forest Classifier outshone the others. 
