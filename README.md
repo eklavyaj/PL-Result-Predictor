@@ -5,7 +5,7 @@ I would call this a 101 machine learning project. The aim was to analyze the dat
 
 # Implementation
 
-Click [here](https://plpredictor.herokuapp.com/) to view current [deployment] of the model.
+Click [here](https://plpredictor.herokuapp.com/) to view current deployment of the model.
 
 To run on local server:
 ~~~
