@@ -137,6 +137,6 @@ def my_form_post():
     output = result(hteam, ateam, htime)
     return output
 
-# if __name__ == "__main__":
-#     app.run()
+if __name__ == "__main__":
+    app.run()
 
