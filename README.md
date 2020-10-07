@@ -1,5 +1,6 @@
 # Premier-League-Result-Predictor
 
+NOTE: The website is hosted [here](http://plpredictor.ml/)
 # Introduction
 I would call this a 101 machine learning project. The aim was to analyze the data of over 8000 English Premier League fixtures spread across 20 seasons. Eventually implemented a machine learning model to predict the final result of a match between two teams whose status (who is winning, or if scores are level) at half time is known. Also created a flask app which takes input the above mentioned variables using a form and then displays the result.
 
